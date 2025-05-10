@@ -23,6 +23,8 @@
 <div align="center">
 <img src="https://github.com/Crazynooi3/react-tailwind-persian-cms/blob/main/public/images/DemoImage.png" alt="Persian CMS Demo" width="600">
 </div>
+
+[Demo](https://react-tailwind-persian-3uy68fv4i-crazynooi3s-projects.vercel.app)
 💻 [مشاهده دمو](https://react-tailwind-persian-3uy68fv4i-crazynooi3s-projects.vercel.app)
 
 
