@@ -1,30 +1,28 @@
-<<<<<<< HEAD
-# React + Vite
+# 🇮🇷 Persian CMS - React + Tailwind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Persian CMS - React + Tailwind
-
-یک CMS ساده و فارسی که با React و TailwindCSS ساخته شده است.
+یک **CMS ساده و فارسی** که با **React** و **TailwindCSS** ساخته شده است.  
+سمت سرور از **Node.js** استفاده شده و تمامی عملیات‌های CRUD پیاده‌سازی شده‌اند.  
+نسخه دسکتاپ کامل‌تر است ولی برای گوشی هم بهینه‌سازی شده (هرچند هنوز بعضی صفحات ناقص هستند).
 
 ---
 
-## ⚙️ ویژگی‌ها
+## ✨ ویژگی‌ها
 
-- طراحی مدرن با TailwindCSS
-- مدیریت خطاها برای ورودی‌ها
-- نوتیفیکیشن با Toast
-- چند صفحه‌ای و قابل توسعه
-- زبان فارسی
+- طراحی مدرن و واکنش‌گرا با **TailwindCSS**
+- مدیریت خطا برای ورودی‌ها
+- نوتیفیکیشن‌های کاربر پسند با **Toast**
+- ساختار چند صفحه‌ای و قابل توسعه
+- نمایش داده‌ها با **Recharts**
+- لودینگ مناسب هنگام تغییر سایز یا حالت نمایش
+- زبان کامل فارسی و راست‌چین
+
+---
+
+## 📸 دموی پروژه
+
+<div align="center">
+<img src="https://github.com/Crazynooi3/react-tailwind-persian-cms/assets/demo-image.png" alt="Persian CMS Demo" width="600">
+</div>
 
 ---
 
@@ -35,5 +33,27 @@ If you are developing a production application, we recommend using TypeScript wi
 1. 📥 کلون کردن ریپو
 
 ```bash
-git clone https://github.com/your-username/repo-name.git
->>>>>>> f1c743437fcf8d70d3c19fbff18a257f49524f94
+git clone https://github.com/Crazynooi3/react-tailwind-persian-cms
+```
+
+2. 📦 نصب پکیج‌ها
+
+```bash
+npm install
+```
+
+3. ▶️ اجرای سرور
+   من برای اجرای دیتابیس روی لوکال هاست از XAMPP استفاده کردم و سرور NodeJs هم روی پورت ۸۰۰۰ اجرا کردم. وارد پوشه Backend بشین فایل Server.js رو اجرا کنید
+
+```bash
+node server.js
+```
+4. ▶️ اجرای پروژه
+   پروژه با Vite نوشته شده و تست گرفته شده. پس برای اجرا به Root برگردین و vite رو اجرا کنید.
+   
+```bash
+npm run dev
+```
+
+نکته مهم : فایل دیتابیس در روت پروژه قرار گرفته. حتما برای اجرای پروژه یک دیتابیس با اسم CMS بسازید و فایل دیتابیس قرار گرفته شده رو ایمپورت کنید داخلش.
+
