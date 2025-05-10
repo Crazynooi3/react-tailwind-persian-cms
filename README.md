@@ -57,3 +57,17 @@ npm run dev
 
 نکته مهم : فایل دیتابیس در روت پروژه قرار گرفته. حتما برای اجرای پروژه یک دیتابیس با اسم CMS بسازید و فایل دیتابیس قرار گرفته شده رو ایمپورت کنید داخلش.
 
+
+```pgsql
+📦 react-tailwind-persian-cms
+ ┣ 📂 Backend
+ ┃ ┣ 📜 server.js
+ ┣ 📂 src
+ ┃ ┣ 📂 components
+ ┃ ┣ 📂 pages
+ ┃ ┣ 📜 App.jsx
+ ┣ 📜 package.json
+ ┣ 📜 vite.config.js
+ ┣ 📜 CMS.sql (فایل دیتابیس)
+```
+
