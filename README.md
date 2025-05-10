@@ -24,3 +24,9 @@
 
 ```bash
 git clone https://github.com/Crazynooi3/react-tailwind-persian-cms
+```
+
+2. 📦 نصب پکیج‌ها
+‍‍‍```bash
+npm install
+```
