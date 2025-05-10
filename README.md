@@ -23,4 +23,4 @@
 1. 📥 کلون کردن ریپو
 
 ```bash
-git clone https://github.com/your-username/repo-name.git
+git clone https://github.com/Crazynooi3/react-tailwind-persian-cms
