@@ -21,7 +21,7 @@
 ## 📸 دموی پروژه
 
 <div align="center">
-<img src="[https://github.com/Crazynooi3/react-tailwind-persian-cms/public/images/DemoImage.png](https://github.com/Crazynooi3/react-tailwind-persian-cms/blob/main/public/images/DemoImage.png)" alt="Persian CMS Demo" width="600">
+<img src="https://github.com/Crazynooi3/react-tailwind-persian-cms/blob/main/public/images/DemoImage.png" alt="Persian CMS Demo" width="600">
 </div>
 
 ---
