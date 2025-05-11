@@ -21,12 +21,18 @@
 ## 📸 دموی پروژه
 
 <div align="center">
-<img src="https://github.com/Crazynooi3/react-tailwind-persian-cms/assets/demo-image.png" alt="Persian CMS Demo" width="600">
+<img src="https://github.com/Crazynooi3/react-tailwind-persian-cms/blob/main/public/images/DemoImage.png" alt="Persian CMS Demo" width="600">
 </div>
+
+<div align='center'>
+     <a href="https://react-tailwind-persian-3uy68fv4i-crazynooi3s-projects.vercel.app"> مشاهده دمو </a>
+</div>
+
+
 
 ---
 
-## 🚀 راه‌اندازی پروژه
+## 🚀 راه‌اندازی پروژه  
 
 برای اجرای پروژه مراحل زیر را دنبال کنید:
 
@@ -42,13 +48,13 @@ git clone https://github.com/Crazynooi3/react-tailwind-persian-cms
 npm install
 ```
 
-3. ▶️ اجرای سرور
+3. ▶️ اجرای سرور  
    من برای اجرای دیتابیس روی لوکال هاست از XAMPP استفاده کردم و سرور NodeJs هم روی پورت ۸۰۰۰ اجرا کردم. وارد پوشه Backend بشین فایل Server.js رو اجرا کنید
 
 ```bash
 node server.js
 ```
-4. ▶️ اجرای پروژه
+4. ▶️ اجرای پروژه  
    پروژه با Vite نوشته شده و تست گرفته شده. پس برای اجرا به Root برگردین و vite رو اجرا کنید.
    
 ```bash
@@ -56,4 +62,27 @@ npm run dev
 ```
 
 نکته مهم : فایل دیتابیس در روت پروژه قرار گرفته. حتما برای اجرای پروژه یک دیتابیس با اسم CMS بسازید و فایل دیتابیس قرار گرفته شده رو ایمپورت کنید داخلش.
+
+
+```pgsql
+📦 react-tailwind-persian-cms
+ ┣ 📂 Backend
+ ┃ ┣ 📜 server.js
+ ┣ 📂 src
+ ┃ ┣ 📂 components
+ ┃ ┣ 📂 pages
+ ┃ ┣ 📜 App.jsx
+ ┣ 📜 package.json
+ ┣ 📜 vite.config.js
+ ┣ 📜 CMS.sql (فایل دیتابیس)
+```
+
+
+---
+
+
+## 📜 لایسنس
+
+MIT
+
 
