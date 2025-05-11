@@ -77,8 +77,14 @@ export default function ProductTable({ allProductData, updateProductList }) {
               <tr key={product.div} className="hover:bg-slate-50">
                 <td className="border-b border-slate-200 p-4 py-5">
                   <img
-                    onError={(e) => (e.target.src = "/images/placeholder.png")}
-                    src={product.img || "/images/empty.png"}
+                    onError={(e, error) =>
+                      (e.target.src = "/images/placeholder.png")
+                    }
+                    src={
+                      product.img
+                        ? `http://localhost:8000${product.img}`
+                        : "/images/empty.png"
+                    }
                     alt={product.img ? product.title : "تصویر موجود نیست"}
                     className="h-16 w-16 rounded object-cover"
                   />

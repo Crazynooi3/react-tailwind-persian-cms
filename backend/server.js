@@ -8,6 +8,7 @@ const ordersRouter = require("./routes/ordersRoutes");
 const offsRouter = require("./routes/offsRoutes");
 const adminsRouter = require("./routes/adminsRoutes");
 const registerRouter = require("./routes/registerRoutes");
+const path = require("path");
 
 const app = express();
 
@@ -21,5 +22,9 @@ app.use("/api/orders", ordersRouter);
 app.use("/api/offs", offsRouter);
 app.use("/api/admins", adminsRouter);
 app.use("/api/regester", registerRouter);
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "../src/assets/uploads"))
+);
 
 app.listen(8000, () => console.log("Server Run On Port 8000"));

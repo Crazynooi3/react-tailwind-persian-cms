@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { H1Icon } from "@heroicons/react/24/outline";
 import { BanknotesIcon } from "@heroicons/react/24/outline";
 import { CircleStackIcon } from "@heroicons/react/24/outline";
@@ -9,8 +9,10 @@ import toast, { Toaster } from "react-hot-toast";
 import ProductTitle from "./ProductTitle";
 
 export default function Products() {
+  const fileInputRef = useRef(null);
   const [allProductData, setAllProductData] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   useEffect(() => {
     const handleResize = () => {
       const newIsMobile = window.innerWidth < 768;
@@ -39,6 +41,48 @@ export default function Products() {
   const [newCount, setNewCount] = useState("");
   const [newPrice, setNewPrice] = useState("");
   const [newImg, setNewImg] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [preview, setPreview] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+
+      // ایجاد پیش‌نمایش
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+
+      // آپلود خودکار
+      const formData = new FormData();
+      formData.append("image", file);
+
+      fetch("http://localhost:8000/api/products/upload", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.filePath) {
+            setNewImg(data.filePath); // مسیر تصویر رو ذخیره کن
+            toast.success("تصویر با موفقیت آپلود شد!");
+          } else {
+            toast.error(data.message || "خطا در آپلود تصویر!");
+            setSelectedFile(null);
+            setPreview(null);
+          }
+        })
+        .catch((error) => {
+          console.error("خطا:", error);
+          toast.error("خطا در آپلود تصویر!");
+          setSelectedFile(null);
+          setPreview(null);
+        });
+    }
+  };
 
   const [isTitleValid, setIsTitleValid] = useState(false);
 
@@ -46,7 +90,7 @@ export default function Products() {
     const isValidTitle =
       newTitle.trim() !== "" &&
       /^[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFFa-zA-Z0-9\s]+$/.test(
-        newTitle.trim(),
+        newTitle.trim()
       );
     setIsTitleValid(isValidTitle);
   }, [newTitle]);
@@ -68,22 +112,18 @@ export default function Products() {
   const [isImgValid, setIsImgValid] = useState(false);
 
   useEffect(() => {
-    if (newImg != "") {
-      setIsImgValid(true);
-    } else {
-      setIsImgValid(false);
-    }
+    setIsImgValid(newImg !== ""); // تصویر معتبره اگه مسیر داشته باشیم
   }, [newImg]);
 
   const [submitValid, setSubmitValid] = useState(false);
 
   useEffect(() => {
-    if (isImgValid && isCountValid && isPriceValid && isTitleValid) {
+    if (isCountValid && isPriceValid && isTitleValid) {
       setSubmitValid(true);
     } else {
       setSubmitValid(false);
     }
-  }, [newTitle, newPrice, newCount, newImg]);
+  }, [newTitle, newPrice, newCount]);
 
   const addProductHandler = () => {
     const toastId = toast.loading("در حال اضافه کردن محصول ...");
@@ -118,11 +158,13 @@ export default function Products() {
           toast.dismiss(toastId);
           toast.success("محصول با موفقیت اضافه شد!");
         }, 2000);
-
+        fileInputRef.current.value = "";
         setNewTitle("");
         setNewPrice("");
         setNewCount("");
         setNewImg("");
+        setSelectedFile(null);
+        setPreview(null);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -226,10 +268,11 @@ export default function Products() {
           <div id="add-new-pro">
             <div class="relative">
               <input
-                name="img"
-                value={newImg}
-                onChange={(e) => setNewImg(e.target.value)}
-                type="email"
+                name="image"
+                ref={fileInputRef}
+                onChange={handleImageChange}
+                type="file"
+                accept="image/*"
                 class="ease w-full rounded-md border border-slate-400 bg-transparent py-3 pr-10 pl-3 text-lg text-slate-700 shadow-sm transition duration-300 placeholder:text-slate-400 hover:border-slate-300 focus:border-slate-400 focus:shadow focus:outline-none"
                 placeholder="آدرس تصویر محصول جدید را وارد نمایید"
               />
@@ -239,6 +282,11 @@ export default function Products() {
               >
                 <ArrowUpTrayIcon className="w-4 text-white" />
               </button>
+              {!isImgValid && selectedFile && (
+                <span className="text-xs font-light text-red-400">
+                  لطفاً تصویر را آپلود کنید
+                </span>
+              )}
             </div>
           </div>
         </div>
